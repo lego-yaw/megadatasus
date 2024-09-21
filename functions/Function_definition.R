@@ -3259,100 +3259,10 @@ Acess_Datasus <- function(Fonte, UF, ano_inicio, ano_final, mes_inicial, mes_fin
       combined_data <- do.call(rbind, all_data_aligned)
     }
   }# Done
-  else if (Fonte == " PCE") {
+  else if (Fonte == "PCE") {
     # Código específico para SINASC-DNEX
     string <- "PCE"
     ftp_string <- "ftp://ftp.datasus.gov.br/dissemin/publicos/PCE/DADOS/"
-    
-    for (uf in UF) {
-      for (year in seq(ano_inicio, ano_final)) {
-        year_string_1 <- sprintf("%02d", as.numeric(substr(year, 3, 4)))
-        year_string_2 <- as.character(year)
-        
-        file_names_sus <- unlist(strsplit(getURL(ftp_string, ftp.use.epsv = FALSE, dirlistonly = TRUE), "\r\n"))
-        
-        for (m in seq(as.numeric(mes_inicio), as.numeric(mes_final))) {
-          mes_string <- sprintf("%02d", m)
-          database_string_1 <- paste0(string, uf, year_string_1,mes_string, ".dbc")
-          database_string_2 <- paste0(string, uf, year_string_2, ".dbc")
-          database_string_3 <- paste0(string,year_string_2, ".dbc")
-          database_string_4 <- paste0(string,uf, year_string_1, ".dbc")
-          
-          query_string_1 <- paste0(ftp_string, database_string_1)
-          query_string_2 <- paste0(ftp_string, database_string_2)
-          query_string_3 <- paste0(ftp_string, database_string_3)
-          query_string_4 <- paste0(ftp_string, database_string_4)
-          
-          file_path_1 <- file.path(tempdir(), database_string_1)
-          file_path_2 <- file.path(tempdir(), database_string_2)
-          file_path_3 <- file.path(tempdir(), database_string_3)
-          file_path_4 <- file.path(tempdir(), database_string_4)
-          
-          # Simulate delay before downloading
-          Sys.sleep(delay)
-          
-          # Check if the file exists in the list of files on the FTP server
-          if (any(database_string_1 %in% file_names_sus)) {
-            tryCatch({
-              download.file(query_string_1, file_path_1, mode = "wb")
-              print(paste("Downloaded:", database_string_1))
-            }, error = function(e) {
-              print(paste("Error downloading", database_string_1, ":", e$message))
-            })
-          } else if (any(database_string_2 %in% file_names_sus)) {
-            tryCatch({
-              download.file(query_string_2, file_path_2, mode = "wb")
-              print(paste("Downloaded:", database_string_2))
-            }, error = function(e) {
-              print(paste("Error downloading", database_string_2, ":", e$message))
-            })
-          } else if (any(database_string_3 %in% file_names_sus)) {
-            tryCatch({
-              download.file(query_string_3, file_path_3, mode = "wb")
-              print(paste("Downloaded:", database_string_3))
-            }, error = function(e) {
-              print(paste("Error downloading", database_string_3, ":", e$message))
-            })
-          } else if (any(database_string_4 %in% file_names_sus)) {
-            tryCatch({
-              download.file(query_string_4, file_path_4, mode = "wb")
-              print(paste("Downloaded:", database_string_4))
-            }, error = function(e) {
-              print(paste("Error downloading", database_string_4, ":", e$message))
-            })
-          } else {
-            print(paste("Arquivo não encontrado para:", database_string_1, "ou", database_string_2, "ou", database_string_3, "ou", database_string_4))
-            next
-          }
-          
-          # Combine the downloaded files
-          dbc_files <- list.files(path = tempdir(), pattern = "\\.dbc$", full.names = TRUE)
-          all_data <- list()  
-          for (file in dbc_files) {
-            data <- read.dbc(file)
-            if (nrow(data) > 0) {
-              all_data[[length(all_data) + 1]] <- data
-            }
-          }
-        }
-      }
-    }
-    
-    # Standardize columns across all data frames
-    if (length(all_data) > 0) {
-      all_columns <- unique(unlist(lapply(all_data, colnames)))
-      all_data_aligned <- lapply(all_data, function(df) {
-        missing_cols <- setdiff(all_columns, colnames(df))
-        df[missing_cols] <- NA
-        return(df[, all_columns])
-      })
-      combined_data <- do.call(rbind, all_data_aligned)
-    }
-  }# Done
-  else if (Fonte == "CNES-DC") {
-    # Código específico para SINASC-DNEX
-    string <- "DC"
-    ftp_string <- "ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/"
     
     for (uf in UF) {
       for (year in seq(ano_inicio, ano_final)) {
@@ -9487,14 +9397,14 @@ Acess_Datasus <- function(Fonte, UF, ano_inicio, ano_final, mes_inicial, mes_fin
 
 
 # Example usage:
-combined_data <- Acess_Datasus(Fonte = "CIH", 
-                               UF = c("AC"), 
-                               ano_inicio = 2011, 
-                               ano_final = 2011, 
+combined_data <- Acess_Datasus(Fonte = "PCE", 
+                               UF = c("AL"), 
+                               ano_inicio = 2015, 
+                               ano_final = 2015, 
                                mes_inicial = "01", 
-                               mes_final = "02", 
+                               mes_final = "05", 
                                clean = TRUE,
-                               delay = 0.01)  # Adding a delay of 3 seconds # Adding a delay of 3 seconds
+                               delay = 0.5)  # Adding a delay of 3 seconds # Adding a delay of 3 seconds
 
 
 
@@ -9504,7 +9414,7 @@ view(combined_data)
 colnames(combined_data)
 
 
-export(combined_data, "CIH.csv")
+export(combined_data, "PCE.csv")
 
 
 
