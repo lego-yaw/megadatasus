@@ -1,0 +1,10 @@
+utils::globalVariables(c(
+  "%chin%", ":=", ".", ".data",
+  "prefix", "fonte", "base", "available_years", "year", "code", "uf",
+  "ORIGEM", "CODESTAB", "LOCNASC", "CODMUNNASC", "CODMUNRES", "CODMUNNATU",
+  "ESTCIMAE", "ESCMAE", "ESCMAE2010", "ESCMAEGR1", "CODOCUPMAE", "GESTACAO",
+  "GRAVIDEZ", "PARTO", "CONSULTAS", "SEXO", "RACACOR", "RACAMAE",
+  "RACACOREMAE", "IDANOMAL", "TPMETESTIM", "MESPRENAT", "TPAPRESENT",
+  "STTRABPART", "STCESPARTO", "TPNASCASSI", "TPFUNCRESP", "TPFUNCR",
+  "TPDOCRESP", "STDNEPIDEM", "STDNNOVA", "CODPAISRES"
+))

@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.RData
+.httr-oauth
+.DS_Store
+.quarto
+
+# Ignore data files
+*.parquet
+*.zip
+*.csv
+
+# Ignore data folders (optional but recommended)
+data/
+R/data/
+inst/extdata/
