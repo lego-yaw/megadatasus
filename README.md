@@ -47,14 +47,163 @@ However, working with these datasets at scale presents several challenges:
 
 ## 📂 Supported Systems
 
-- SIM — Mortality Information System  
-- SINASC — Live Birth Information System  
-- SIHSUS — Hospital Information System  
-- SIASUS — Ambulatory Information System  
-- CNES — Health Establishments Registry  
-- IBGE — Population Data  
-- Additional systems: RESP, PCE, CIH, among others  
+### SIM — Mortality Information System
+Supported groups:
+- `SIM-DO` — General mortality data
+- `SIM-DOEXT` — Deaths from external causes
+- `SIM-DOINF` — Infant mortality data
+- `SIM-DOMAT` — Maternal mortality data
+- `SIM-DOREXT` — Death records related to external causes/residence-based structure
+- `SIM-DOFET` — Fetal death data
 
+### SINASC — Live Birth Information System
+Supported groups:
+- `SINASC-DN` — Live birth declarations
+- `SINASC-DNEX` — Extended live birth files
+
+### SIHSUS — Hospital Information System
+Supported groups:
+- `SIHSUS-RD`
+- `SIHSUS-ER`
+- `SIHSUS-RJ`
+- `SIHSUS-SP`
+
+These files cover different hospital data tables available in the SIHSUS repository.
+
+### SIASUS — Ambulatory Information System
+Supported groups:
+- `SIASUS-AB`
+- `SIASUS-ABO`
+- `SIASUS-ACF`
+- `SIASUS-AD`
+- `SIASUS-AM`
+- `SIASUS-SD`
+- `SIASUS-AQ`
+- `SIASUS-AN`
+- `SIASUS-AR`
+- `SIASUS-ATD`
+- `SIASUS-PA`
+- `SIASUS-PS`
+
+These correspond to the major ambulatory production and procedure files available in SIASUS.
+
+### CNES — National Registry of Health Establishments
+Supported groups:
+- `CNES-DC`
+- `CNES-EE`
+- `CNES-EF`
+- `CNES-EP`
+- `CNES-EQ`
+- `CNES-GM`
+- `CNES-HB`
+- `CNES-IN`
+- `CNES-LT`
+- `CNES-PF`
+- `CNES-RC`
+- `CNES-SR`
+- `CNES-ST`
+
+### SINAN — Notifiable Diseases Information System
+Supported groups include several disease- and condition-specific files, such as:
+- `SINAN-AIDC`
+- `SINAN-ANIM`
+- `SINAN-ANTR`
+- `SINAN-BOTU`
+- `SINAN-CANC`
+- `SINAN-RAIV`
+- `SINAN-CHAG`
+- `SINAN-CHIK`
+- `SINAN-COLE`
+- `SINAN-COQU`
+- `SINAN-DENG`
+- `SINAN-DERM`
+- `SINAN-ESPO`
+- `SINAN-ESQU`
+- `SINAN-EXAN`
+- `SINAN-FMAC`
+- `SINAN-FTIF`
+- `SINAN-HANS`
+- `SINAN-HANT`
+- `SINAN-HEPA`
+- `SINAN-HIVA`
+- `SINAN-HIVC`
+- `SINAN-HIVE`
+- `SINAN-HIVG`
+- `SINAN-IEXO`
+- `SINAN-LEPT`
+- `SINAN-LERD`
+- `SINAN-LTAN`
+- `SINAN-MALA`
+- `SINAN-MENI`
+- `SINAN-MENT`
+- `SINAN-NTRA`
+- `SINAN-PAIR`
+- `SINAN-PEST`
+- `SINAN-PFAN`
+- `SINAN-PNEU`
+- `SINAN-ROTA`
+- `SINAN-SDTA`
+- `SINAN-SIFA`
+- `SINAN-SIFC`
+- `SINAN-SIFG`
+- `SINAN-SRC`
+- `SINAN-TETA`
+- `SINAN-TETN`
+- `SINAN-TOXC`
+- `SINAN-TOXG`
+- `SINAN-TRAC`
+- `SINAN-TUBE`
+- `SINAN-VARC`
+- `SINAN-VIOL`
+- `SINAN-ZIKA`
+- `SINAN-AIDA`
+- `SINAN-ACGR`
+- `SINAN-ACBI`
+
+### IBGE — Population and Territorial Reference Data
+Supported group:
+- `IBGE-POP`
+- `IBGE-POPT`
+
+These datasets are useful for population denominators, municipality codes, and demographic integration with health data.
+
+### RESP — Public Health Event / Surveillance Data
+Supported group:
+- `RESP`
+
+### SISPRENATAL — Prenatal Care Information System
+Supported group:
+- `SISPRENATAL-PN`
+
+### PCE — Schistosomiasis Control Program
+Supported group:
+- `PCE`
+
+### PO — Oncology Panel Data
+Supported group:
+- `PO`
+
+### CIH — Hospital Communication Data
+Supported group:
+- `CIH-CR`
+
+### CIHA — Expanded Hospital Communication Data
+Supported group:
+- `CIHA`
+
+### SISCOLO — Cervical Cancer Information System
+Supported groups:
+- `SISCOLO-CC`
+- `SISCOLO-HC`
+
+### SISMAMA — Breast Cancer Information System
+Supported groups:
+- `SISMAMA-CM`
+- `SISMAMA-HC`
+
+### ESUS Notifica
+Supported group:
+- `e-SUS` (ESUSNOTIFICA)
 ---
 ## Main Functions
 
