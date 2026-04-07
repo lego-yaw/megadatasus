@@ -56,6 +56,29 @@ However, working with these datasets at scale presents several challenges:
 - Additional systems: RESP, PCE, CIH, among others  
 
 ---
+## Main Functions
+
+- `acesso_datasus()`  
+  Main function for downloading and importing DataSUS datasets. It provides unified access to multiple public health information systems and supports flexible queries by system, state, year, and file type.
+
+- `Datasus_info()`  
+  Lists available DataSUS systems, subsystems, files, and year coverage. It helps users explore the structure of the DataSUS repository and identify which datasets are available before downloading.
+
+- `acesso_sinan()`  
+  Dedicated function for accessing and importing SINAN datasets. It simplifies retrieval of notification data from the Notifiable Diseases Information System, supporting different diseases, years, and geographic filters.
+
+- `acesso_IBGE()`  
+  Imports IBGE reference data used to support DataSUS workflows, such as population data, municipality codes, and territorial information. It is useful for demographic standardization and integration with health datasets.
+
+- `sinan_info()`  
+  Returns metadata and file availability for SINAN datasets, including supported diseases, years, and folders. It is designed to help users navigate the SINAN structure before performing downloads.
+
+- `clean_table()`  
+  Cleans and standardizes imported datasets using dictionary-based decoding and system-specific transformation rules. It converts coded fields into human-readable values, formats dates, harmonizes columns, and returns analysis-ready tables.
+
+- `describe_df()`  
+  Returns a structured summary of a data frame, listing all column names and providing a general overview of the dataset structure. It is useful for quickly inspecting variables and understanding how the data is organized before further analysis.
+---
 
 ## ⚙️ Installation
 
