@@ -80,6 +80,6 @@ remotes::install_github("lego-yaw/megadatasus")
  clean_df <- clean_table(df, fonte = "SIM-DO")
  
 
-# Getting information on which data (UF, year and arquives) available fOR SIM
+# Getting information on which data (UF, year and archives) available fOR SIM
 sim_info <- Datasus_info("SIM")
 ```
