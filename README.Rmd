@@ -8,7 +8,7 @@
 
 `megadatasus` is an R package designed to provide **fast, robust, and scalable access** to Brazilian public health data from DataSUS systems.
 
-This package builds upon the ideas introduced by the original :contentReference[oaicite:2]{index=2}, extending its capabilities to support modern data workflows, large-scale processing, and automated data transformation.
+This package builds upon the ideas introduced by the original https://github.com/danicat/datasus, extending its capabilities to support modern data workflows, large-scale processing, and automated data transformation.
 
 While earlier tools focus primarily on data retrieval, `megadatasus` provides a **complete data processing pipeline**, from ingestion to analysis-ready datasets.
 
@@ -62,4 +62,24 @@ However, working with these datasets at scale presents several challenges:
 ```r
 install.packages("remotes")
 remotes::install_github("lego-yaw/megadatasus")
+```
+
+## Exemple of usage
+
+```r
+# Download SIM data for Rio de Janeiro ("2005")
+  df <- acesso_datasus(
+  Fonte = "SIM-DO",
+  UF = "RJ",
+  ano_inicio = 2005,
+  ano_final = 2005
+ )
+
+
+# Clean SIM dataset (Translation of variables)
+ clean_df <- clean_table(df, fonte = "SIM-DO")
+ 
+
+# Getting information on which data (UF, year and arquives) available fOR SIM
+sim_info <- Datasus_info("SIM")
 ```
